@@ -93,7 +93,7 @@ html, body {
   font-weight: 700;
   font-size: 48px;
   line-height: 40px;
-  letter-spacing: -0.1em;
+  letter-spacing: 0;
   transition: transform 0.9s cubic-bezier(.6,0,.4,1), opacity 0.9s ease;
 }
 #intro-name p { margin: 0 0 0 0; padding-bottom: 8px; }
@@ -107,7 +107,7 @@ html, body {
   font-weight: 700;
   font-size: 48px;
   line-height: 40px;
-  letter-spacing: -0.1em;
+  letter-spacing: 0;
   white-space: nowrap;
   transition: transform 0.9s cubic-bezier(.6,0,.4,1), opacity 0.9s ease;
 }
@@ -144,6 +144,7 @@ html, body {
   height: 100%;
   object-fit: cover;
   pointer-events: none;
+  opacity: 1;
 }
 
 #phone-icon {
@@ -176,5 +177,5 @@ html, body {
   line-height: 40px;
   white-space: nowrap;
   transform: translateX(1440px);
-  z-index: 5;
+  z-index: 15; /* above the phone (z-index: 10) so it runs in front of it */
 }
