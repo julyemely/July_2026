@@ -10,7 +10,6 @@
   var introName = document.getElementById("intro-name");
   var introQuote = document.getElementById("intro-quote");
   var phoneWrap = document.getElementById("phone-wrap");
-  var phoneImg = document.getElementById("phone-img");
   var phoneIcon = document.getElementById("phone-icon");
   var marqueeText = document.getElementById("marquee-text");
 
@@ -53,14 +52,8 @@
     void marqueeText.offsetWidth;
 
     marqueeText.style.transition = "transform " + MARQUEE_DURATION + "s linear";
-
-    // the phone image itself fades away over the same span the text takes
-    // to cross the screen (the icon underneath is unaffected and appears once it's done)
-    phoneImg.style.transition = "opacity " + MARQUEE_DURATION + "s linear";
-
     requestAnimationFrame(function () {
       marqueeText.style.transform = "translateX(-" + (textWidth + 50) + "px)";
-      phoneImg.style.opacity = "0";
     });
 
     marqueeText.addEventListener("transitionend", onMarqueeEnd, { once: true });
@@ -74,8 +67,6 @@
   function goBack() {
     if (state === "icon") {
       phoneIcon.classList.remove("show");
-      phoneImg.style.transition = "opacity .6s ease";
-      phoneImg.style.opacity = "1";
       state = "phone";
     } else if (state === "phone") {
       phoneWrap.classList.remove("in-view");
