@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  var INSTAGRAM_URL = "https://www.instagram.com/july_hanze?stkn=MTB0c2o2eXl1bG10bw%3D%3D&utm_source=qr";
+  var INSTAGRAM_URL = "https://www.instagram.com/july_minerva?stkn=MTB0c2o2eXl1bG10bw%3D%3D&utm_source=qr";
   var MARQUEE_DURATION = 18; // seconds — readable scroll speed
 
   var stage = document.getElementById("stage");
