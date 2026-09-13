@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>July Petry — 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- custom cursor -->
+  <div id="cursor-dot"></div>
+
+  <!-- fixed 1440x900 stage, scaled to fit any viewport -->
+  <div id="stage">
+
+    <!-- persistent top bar: back arrow + year badge -->
+    <button id="back-arrow" aria-label="Zurück">
+      <svg width="36" height="20" viewBox="0 0 36 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M35 10H1M1 10L10 1M1 10L10 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div id="badge">2026</div>
+
+    <!-- FRAME 1: Intro -->
+    <div class="frame" id="frame-intro">
+      <div id="intro-name">
+        <p>July Petry</p>
+        <p>24 y.o.</p>
+        <p>Communication Design student at HAW Hamburg</p>
+      </div>
+      <p id="intro-quote">&ldquo;What keeps you guys awake at night?&rdquo;</p>
+    </div>
+
+    <!-- Phone (slides up, present in states 2-4) -->
+    <div id="phone-wrap">
+      <img id="phone-img" src="assets/phone.png" alt="iPhone Mockup">
+      <img id="phone-icon" src="assets/icon.png" alt="Instagram Icon">
+    </div>
+
+    <!-- Marquee text (frame 3 content, slides across screen) -->
+    <p id="marquee-text">We are the phone generation: constantly overstimulated by quick dopamine hits. We doomscroll, escape boredom, and rarely give our brains a break. As a result, our focus, attention, and creativity suffer because we&rsquo;ve forgotten how to simply do nothing. So, I&rsquo;ve prepared a presentation about myself—one that matches our attention span.</p>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

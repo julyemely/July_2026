@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+  cursor: none; /* default cursor hidden everywhere -> replaced by red dot */
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- custom cursor ---------- */
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #FF0000;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  will-change: transform;
+  opacity: 0; /* fades in on first mouse move */
+  transition: opacity .2s ease;
+}
+#cursor-dot.visible { opacity: 1; }
+
+/* ---------- stage: fixed 1440x900 design canvas, scaled to fit viewport ---------- */
+#stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 900px;
+  background: #000;
+  transform-origin: top left;
+  overflow: hidden;
+  cursor: none;
+}
+
+/* ---------- top bar: back arrow + year badge (persistent across all frames) ---------- */
+#back-arrow {
+  position: absolute;
+  left: 51px;
+  top: 57px;
+  width: 36px;
+  height: 20px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: none;
+  z-index: 20;
+}
+
+#badge {
+  position: absolute;
+  left: 1139px;
+  top: 52px;
+  width: 250px;
+  height: 90px;
+  border: 1.5px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* ---------- frame 1: intro ---------- */
+.frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 900px;
+}
+
+#intro-name {
+  position: absolute;
+  left: 51px;
+  top: 293px;
+  width: 594px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 40px;
+  letter-spacing: -0.1em;
+  transition: transform 0.9s cubic-bezier(.6,0,.4,1), opacity 0.9s ease;
+}
+#intro-name p { margin: 0 0 0 0; padding-bottom: 8px; }
+
+#intro-quote {
+  position: absolute;
+  left: 349px;
+  top: 694px;
+  width: 741px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 40px;
+  letter-spacing: -0.1em;
+  white-space: nowrap;
+  transition: transform 0.9s cubic-bezier(.6,0,.4,1), opacity 0.9s ease;
+}
+
+/* text-exit animation classes, applied on first click */
+#intro-name.exit {
+  transform: translateX(-500px);
+  opacity: 0;
+}
+#intro-quote.exit {
+  transform: translateX(500px);
+  opacity: 0;
+}
+
+/* ---------- phone (frames 2-4) ---------- */
+#phone-wrap {
+  position: absolute;
+  left: 544px;
+  top: 102px;
+  width: 351px;
+  height: 697px;
+  transform: translateY(900px); /* starts hidden below the stage */
+  transition: transform 1s cubic-bezier(.2,.8,.3,1);
+  z-index: 10;
+}
+#phone-wrap.in-view {
+  transform: translateY(0);
+}
+
+#phone-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#phone-icon {
+  position: absolute;
+  left: 148px;
+  top: 290px;
+  width: 56px;
+  height: 56px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity .5s ease, transform .5s cubic-bezier(.34,1.56,.64,1);
+  cursor: none;
+  pointer-events: none; /* not clickable until it has faded in */
+}
+#phone-icon.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+/* ---------- marquee text (frame 3) ---------- */
+#marquee-text {
+  position: absolute;
+  left: 0;
+  top: 607px;
+  width: 1440px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 40px;
+  white-space: nowrap;
+  transform: translateX(1440px);
+  z-index: 5;
+}
